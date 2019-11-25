@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Autotag App</title>
+</head>
+
+<body>
+    <div>
+        <h1><a href="/">Autotagging Application</a></h1>
+    </div>
+
+    <div>
+
+        <form id="loginform" method="post">
+            <input type="text" id="input1" />
+            <input type="file" id="fileSelect" onchange="previewFile()" />
+            <input type="submit" name="loginBtn" id="loginBtn" value="Login" />
+            <button type="button" value="Submit">Submit</button>
+        </form>
+       
+    </div>
+
+    <h2>IMAGE </h2>
+
+    <div>
+        <img id="imgedit" src="#" alt="Upload whatever image you want " style=" max-width:50%; max-height:50%;" />
+
+    </div>
+
+    <h2>VIDEO </h2>
+    <div>
+
+        <video id="videdit" width="400" autoplay loop controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+    <h2>TAGS</h2>
+
+    <div id="wait" style="display:none;width:69px;height:89px;position:absolute;top:50%;left:50%;padding:2px;">
+        <img src="ajax-loader.gif'" width="64" height="64" /><br>Waiting for Google..</div>
+
+    <div id="labels">
+        <p id="par"> Aquí aparecerán los tags </p>
+
+    </div>
+
+
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
+</html>
