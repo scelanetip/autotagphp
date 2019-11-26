@@ -37,8 +37,18 @@
             <form action="check.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="image" accept="image/*" class="form-control-lg"  placeholder=".form-control-lg">
                 <br><hr><br>
-                <button type="submit" style="border-radius: 0px;" class="btn btn-lg btn-block btn-outline-danger">Analyse Image</button>
+                <button type="submit" style="border-radius: 0px;" class="btn btn-lg btn-block btn-outline-danger" onclick=loader()>Analyse Image</button>
             </form>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-danger m-5" style="display:none;" role="status" id="loader">
+                  <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <script>
+            function loader() {
+              document.getElementById("loader").style.display = "block";
+            }
+            </script>
         </div>   
         </div>
     </div>
