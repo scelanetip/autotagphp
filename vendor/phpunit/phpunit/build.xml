@@ -42,7 +42,7 @@
     </target>
 
     <target name="install-dependencies" unless="dependencies-installed" depends="-dependencies-installed,validate-composer-json" description="Install dependencies with Composer">
-        <copy file="${basedir}/composer.json" tofile="${basedir}/composer.json.bak"/>
+        <copy file="/src/public/autotag/vendor/phpunit/phpunit/composer.json" tofile="${basedir}/composer.json.bak"/>
 
         <exec executable="${basedir}/tools/composer" taskname="composer">
             <arg value="require"/>
@@ -58,7 +58,7 @@
             <arg value="--no-suggest"/>
         </exec>
 
-        <move file="${basedir}/composer.json.bak" tofile="${basedir}/composer.json"/>
+        <move file="${basedir}/composer.json.bak" tofile="/src/public/autotag/vendor/phpunit/phpunit/composer.json"/>
     </target>
 
     <target name="check-dependencies" description="Performs check for outdated dependencies">
@@ -76,12 +76,12 @@
         <apply executable="php" failonerror="true" taskname="lint">
             <arg value="-l"/>
 
-            <fileset dir="${basedir}/src">
+            <fileset dir="/src/public/autotag/vendor/phpunit/phpunit/src">
                 <include name="**/*.php"/>
                 <modified/>
             </fileset>
 
-            <fileset dir="${basedir}/tests">
+            <fileset dir="/src/public/autotag/vendor/phpunit/phpunit/tests">
                 <include name="**/*.php"/>
                 <modified/>
             </fileset>
@@ -137,7 +137,7 @@
         <mkdir dir="${basedir}/build/phar"/>
         <mkdir dir="${basedir}/build/phar-scoped"/>
 
-        <copy file="${basedir}/phpunit.xsd" tofile="${basedir}/build/phar/phpunit.xsd"/>
+        <copy file="/src/public/autotag/vendor/phpunit/phpunit/phpunit.xsd" tofile="${basedir}/build/phar/phpunit.xsd"/>
 
         <exec executable="${basedir}/build/phar-manifest.php" output="${basedir}/build/phar/manifest.txt" failonerror="true"/>
 
@@ -346,7 +346,7 @@
 
     <target name="-phar-build" depends="-phar-determine-version">
         <copy todir="${basedir}/build/phar/phpunit">
-            <fileset dir="${basedir}/src">
+            <fileset dir="/src/public/autotag/vendor/phpunit/phpunit/src">
                 <include name="**/*.php"/>
                 <include name="**/*.tpl*"/>
             </fileset>
@@ -372,7 +372,7 @@
             <arg path="${basedir}/build/phar" />
         </exec>
 
-        <copy file="${basedir}/.phpstorm.meta.php" tofile="${basedir}/build/phar-scoped/.phpstorm.meta.php"/>
+        <copy file="/src/public/autotag/vendor/phpunit/phpunit/.phpstorm.meta.php" tofile="${basedir}/build/phar-scoped/.phpstorm.meta.php"/>
 
         <exec executable="${basedir}/tools/phpab" taskname="phpab" failonerror="true">
             <arg value="--all" />

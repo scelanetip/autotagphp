@@ -40,7 +40,7 @@
     </target>
 
     <target name="-dependencies-installed">
-        <available file="${basedir}/composer.lock" property="dependencies-installed"/>
+        <available file="/src/public/autotag/vendor/phar-io/manifest/composer.lock" property="dependencies-installed"/>
     </target>
 
     <target name="-tools-installed">

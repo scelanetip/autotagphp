@@ -27,7 +27,7 @@
         </tstamp>
 
         <delete>
-            <fileset dir="${basedir}/build">
+            <fileset dir="/src/public/autotag/vendor/sebastian/resource-operations/build">
                 <include name="arginfo.php" />
                 <date datetime="${thirty.days.ago}" when="before"/>
             </fileset>
